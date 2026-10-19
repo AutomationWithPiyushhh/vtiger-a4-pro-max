@@ -11,7 +11,7 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>LATEST</version>
-		</dependency>
+		</dependency> 
 
 		<!-- JSON Simple -->
 		<dependency>

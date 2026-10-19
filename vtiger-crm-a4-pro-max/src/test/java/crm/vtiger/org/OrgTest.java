@@ -1,17 +1,8 @@
 package crm.vtiger.org;
 
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -22,39 +13,23 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import generic_utility.FileUtility;
 import generic_utility.JavaUtility;
 
 public class OrgTest {
+	
 
 	public static void main(String[] args) throws InterruptedException, IOException, ParseException {
 //		get the data from json file
-		FileReader fr = new FileReader("./src/test/resources/cd.json");
-		JSONParser parser = new JSONParser();
-		Object obj = parser.parse(fr);
-		JSONObject jObj = (JSONObject) obj;
-		String browser = jObj.get("bro").toString();
-		String url = jObj.get("url").toString();
-		String un = jObj.get("un").toString();
-		String pwd = jObj.get("pwd").toString();
-		
+		String browser = FileUtility.getDataFromJsonFile("bro");
+		String url = FileUtility.getDataFromJsonFile("url");
+		String un = FileUtility.getDataFromJsonFile("un");
+		String pwd = FileUtility.getDataFromJsonFile("pwd");
+
 //		get the data from excel file
-		FileInputStream fis = new FileInputStream("./src/test/resources/tsd.xlsx");
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("org");
-		Row row = sh.getRow(1);
-		Cell cell = row.getCell(0);
-		String orgName = cell.getStringCellValue() + JavaUtility.generateRandomNumber();
-		
+		String orgName = FileUtility.getDataFromExcelFile("org", 1, 0) + JavaUtility.generateRandomNumber();
+
 // 		open the browser
-
-
-//		String browser = "chrome";
-//		String url = "http://localhost:8888/";
-//		String un = "admin";
-//		String pwd = "password" ;
-
-//		String orgName = "Qspiders_" + JavaUtility.generateRandomNumber();
-
 		WebDriver driver = null;
 		if (browser.equals("chrome")) {
 			driver = new ChromeDriver();

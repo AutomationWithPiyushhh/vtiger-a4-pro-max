@@ -1,18 +1,9 @@
 package crm.vtiger.lead;
 
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -23,33 +14,20 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import generic_utility.JavaUtility;
+import generic_utility.FileUtility;
 
 public class LeadTest {
 	public static void main(String[] args)
 			throws InterruptedException, EncryptedDocumentException, IOException, ParseException {
 //		get the data from json file
-		FileReader fr = new FileReader("./src/test/resources/cd.json");
-		JSONParser parser = new JSONParser();
-		Object obj = parser.parse(fr);
-		JSONObject jObj = (JSONObject) obj;
-		String browser = jObj.get("bro").toString();
-		String url = jObj.get("url").toString();
-		String un = jObj.get("un").toString();
-		String pwd = jObj.get("pwd").toString();
+		String browser = FileUtility.getDataFromJsonFile("bro");
+		String url = FileUtility.getDataFromJsonFile("url");
+		String un = FileUtility.getDataFromJsonFile("un");
+		String pwd = FileUtility.getDataFromJsonFile("pwd");
 
-//		get the data from excel file
-		FileInputStream fis = new FileInputStream("./src/test/resources/tsd.xlsx");
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("contact");
-
-		Row row = sh.getRow(10);
-		Cell cell = row.getCell(0);
-		String lastName = cell.getStringCellValue();
-
-		Row row1 = sh.getRow(1);
-		Cell cell1 = row1.getCell(1);
-		String company = cell1.getStringCellValue();
+//		get the data from excel file		
+		String lastName = FileUtility.getDataFromExcelFile("contact", 10, 0);
+		String company = FileUtility.getDataFromExcelFile("contact", 1, 1);
 
 		// open the browser
 		WebDriver driver = null;
