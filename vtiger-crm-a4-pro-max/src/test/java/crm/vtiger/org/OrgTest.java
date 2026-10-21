@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import generic_utility.FileUtility;
 import generic_utility.JavaUtility;
+import object_repository.LoginPage;
 
 public class OrgTest {
 	
@@ -46,8 +47,12 @@ public class OrgTest {
 
 		// Login
 		driver.get(url);
-		WebElement username = driver.findElement(By.name("user_name"));
-		WebElement password = driver.findElement(By.name("user_password"));
+		
+		LoginPage lp = new LoginPage(driver);
+		
+		WebElement username = lp.getUsername();
+		WebElement password = lp.getPassword();
+		
 		username.sendKeys(un);
 		password.sendKeys(pwd + Keys.ENTER);
 

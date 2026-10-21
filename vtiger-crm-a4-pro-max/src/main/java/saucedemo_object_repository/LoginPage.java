@@ -1,4 +1,4 @@
-package object_repository_saucedemo;
+package saucedemo_object_repository;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
