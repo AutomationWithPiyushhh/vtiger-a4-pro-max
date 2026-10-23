@@ -5,6 +5,7 @@ import java.time.Duration;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.json.simple.parser.ParseException;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ import org.openqa.selenium.interactions.Actions;
 import generic_utility.FileUtility;
 
 public class ContactTest {
+	
 	public static void main(String[] args)
 			throws InterruptedException, EncryptedDocumentException, IOException, ParseException {
 //		get the data from json file

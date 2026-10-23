@@ -1,8 +1,11 @@
 package crm.vtiger.org;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -12,6 +15,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import generic_utility.FileUtility;
 import generic_utility.JavaUtility;
@@ -19,8 +24,8 @@ import object_repository.LoginPage;
 
 public class OrgTest {
 	
-
-	public static void main(String[] args) throws InterruptedException, IOException, ParseException {
+	@Test
+	public void createOrgTest() throws EncryptedDocumentException, IOException, ParseException, InterruptedException {
 //		get the data from json file
 		String browser = FileUtility.getDataFromJsonFile("bro");
 		String url = FileUtility.getDataFromJsonFile("url");
@@ -69,11 +74,18 @@ public class OrgTest {
 
 		// Verification
 		String actOrgName = driver.findElement(By.id("dtlview_Organization Name")).getText();
-		if (actOrgName.equals(orgName)) {
-			System.out.println("Organization Succesfully created !!!");
-		} else {
-			System.out.println("Failed.....");
-		}
+//		if (actOrgName.equals(orgName+"abcd")) {
+//			System.out.println("Organization Succesfully created !!!");
+//		} else {
+//			System.out.println("Failed.....");
+//		}
+		
+		Object obj1 = null;
+		
+		Object obj2 = new Object();
+		assertNotNull(obj2);
+		
+		Assert.assertEquals(orgName, actOrgName+"abcd");
 
 		// logout
 		WebElement profile = driver.findElement(By.cssSelector("img[src='themes/softed/images/user.PNG']"));
@@ -82,7 +94,7 @@ public class OrgTest {
 		driver.findElement(By.linkText("Sign Out")).click();
 
 		// close the browser
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 		driver.quit();
 	}
 }

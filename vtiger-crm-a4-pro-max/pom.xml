@@ -11,7 +11,7 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>LATEST</version>
-		</dependency> 
+		</dependency>
 
 		<!-- JSON Simple -->
 		<dependency>
@@ -32,6 +32,13 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>5.5.1</version>
+		</dependency>
+
+		<!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.12.0</version>
 		</dependency>
 	</dependencies>
 
