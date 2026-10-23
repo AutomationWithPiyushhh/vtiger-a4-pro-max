@@ -1,0 +1,13 @@
+<!-- Batch => collection of multiple testng classes together is called as batch.
+				To execute them on a single click without any manual intervention 
+				is called as batch execution   -->
+				
+<suite name="suite">
+	<test name="test">
+		<classes>
+			<class name="types_of_execution.OrgTest" />
+			<class name="types_of_execution.ContactTest" />
+			<class name="types_of_execution.LeadTest" />
+		</classes>
+	</test>
+</suite>

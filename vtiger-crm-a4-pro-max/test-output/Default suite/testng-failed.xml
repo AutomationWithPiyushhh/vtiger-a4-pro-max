@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="crm.vtiger.org.OrgTest">
+      <class name="testng_extra.OrgInvocationTest">
         <methods>
-          <include name="createOrgTest"/>
+          <include name="modifyOrgTest"/>
         </methods>
-      </class> <!-- crm.vtiger.org.OrgTest -->
+      </class> <!-- testng_extra.OrgInvocationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

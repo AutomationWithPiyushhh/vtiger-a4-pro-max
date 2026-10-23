@@ -1,24 +1,23 @@
 package testng_extra;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class OrgTest {
 	@Test
 	public void createOrgTest() {
-		System.out.println("hi there !!!");
+		System.out.println("org created");
 	}
 
-	@Test
+	@Test(dependsOnMethods = "createOrgTest")
 	public void modifyOrgTest() {
-		System.out.println("modification");
+		Assert.assertTrue(false);
+		System.out.println("org modified to LatestOrg");
 	}
 
-	@Test
-	public void deleteOrgTest() {
-		System.out.println("how are you ???");
+	@Test(dependsOnMethods = "modifyOrgTest", alwaysRun = true)
+	public void deleteOrgTest() {	
+		System.out.println("LatestOrg deleted");
 	}
 	
-	public static void main(String[] args) {
-		System.out.println("hello");
-	}
 }

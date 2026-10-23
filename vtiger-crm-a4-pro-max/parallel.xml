@@ -1,0 +1,20 @@
+
+<suite parallel="tests" name="suite">
+	<test name="test1"> 
+		<classes>
+			<class name="parallel_execution_classes.LeadTest" />
+		</classes>
+	</test>
+
+	<test name="test2">
+		<classes>
+			<class name="parallel_execution_classes.OrgTest" />
+		</classes>
+	</test>
+
+	<test name="test3">
+		<classes>
+			<class name="parallel_execution_classes.ContactTest" />
+		</classes>
+	</test>
+</suite>
