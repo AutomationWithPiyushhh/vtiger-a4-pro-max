@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testng_extra.OrgInvocationTest">
+      <class name="parallel_execution_classes.ContactTest">
         <methods>
-          <include name="modifyOrgTest"/>
+          <include name="createContactTest"/>
         </methods>
-      </class> <!-- testng_extra.OrgInvocationTest -->
+      </class> <!-- parallel_execution_classes.ContactTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

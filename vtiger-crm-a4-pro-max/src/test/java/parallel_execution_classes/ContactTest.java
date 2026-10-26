@@ -4,14 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class ContactTest {
+	
+//	Describes how to pass parameters to a @Test method.
+	@Parameters("bro")
 	@Test
-	public void createContactTest() throws InterruptedException {
+	public void createContactTest(String browser) throws InterruptedException {
 		WebDriver driver = null;
 		
-		String browser = "chrome";
+//		String browser = "chrome";
 		
 		if (browser.equals("chrome")) {
 			driver = new ChromeDriver();
