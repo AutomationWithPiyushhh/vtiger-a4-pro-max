@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="parallel_execution_classes.ContactTest">
+      <class name="learning_ad_rep.OrgTest">
         <methods>
-          <include name="createContactTest"/>
+          <include name="repBackup"/>
+          <include name="repConfig"/>
+          <include name="createOrgTest"/>
         </methods>
-      </class> <!-- parallel_execution_classes.ContactTest -->
+      </class> <!-- learning_ad_rep.OrgTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

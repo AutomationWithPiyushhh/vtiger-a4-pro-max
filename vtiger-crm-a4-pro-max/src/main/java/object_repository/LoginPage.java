@@ -1,6 +1,5 @@
 package object_repository;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,22 +9,20 @@ public class LoginPage {
 	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	
-//		WebElement username = driver.findElement(By.name("user_name"));
-//		WebElement password = driver.findElement(By.name("user_password"));
 
-	
 	@FindBy(name = "user_name")
 	private WebElement username;
-	
+
 	@FindBy(name = "user_password")
 	private WebElement password;
 
-	public WebElement getUsername() {
-		return username;
+	@FindBy(id = "submitButton")
+	private WebElement loginBtn;
+	
+	public void login(String un, String pwd) {
+		username.sendKeys(un);
+		password.sendKeys(pwd);
+		loginBtn.click();
 	}
-
-	public WebElement getPassword() {
-		return password;
-	}
-}
+}	
+	
