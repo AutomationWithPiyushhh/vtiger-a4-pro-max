@@ -26,7 +26,7 @@ public class BaseClass {
 	public void setUp() throws IOException, ParseException {
 // 		open the browser
 		String browser = FileUtility.getDataFromJsonFile("bro");
-
+		String url  = FileUtility.getDataFromJsonFile("url");
 		if (browser.equals("chrome")) {
 			driver = new ChromeDriver();
 		} else if (browser.equals("edge")) {
@@ -40,7 +40,7 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-		driver.get("http://localhost:8888/");
+		driver.get(url);
 	}
 
 	@BeforeMethod

@@ -7,12 +7,14 @@ import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import base_utility.BaseClass;
 import generic_utility.FileUtility;
 import generic_utility.JavaUtility;
 
+@Listeners(listeners_utility.List_Imp.class)
 public class OrgTest extends BaseClass{
 
 	@Test

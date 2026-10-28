@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="learning_ad_rep.OrgTest">
+      <class name="crm.vtiger.org.OrgTest">
         <methods>
-          <include name="repBackup"/>
-          <include name="repConfig"/>
+          <include name="logout"/>
+          <include name="setUp"/>
           <include name="createOrgTest"/>
+          <include name="tearDown"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- learning_ad_rep.OrgTest -->
+      </class> <!-- crm.vtiger.org.OrgTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
