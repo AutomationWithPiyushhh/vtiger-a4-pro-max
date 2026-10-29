@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import base_utility.BaseClass;
 import generic_utility.FileUtility;
 import generic_utility.JavaUtility;
+import object_repository.HomePage;
 
 @Listeners(listeners_utility.List_Imp.class)
 public class OrgTest extends BaseClass{
@@ -24,7 +25,9 @@ public class OrgTest extends BaseClass{
 		String orgName = FileUtility.getDataFromExcelFile("org", 1, 0) + JavaUtility.generateRandomNumber();
 
 		// Create organization
-		driver.findElement(By.linkText("Organizations")).click();
+//		driver.findElement(By.linkText("Organizations")).click();
+		HomePage hp = new HomePage(driver);
+		hp.getOrgLink().click();
 		driver.findElement(By.cssSelector("img[alt='Create Organization...']")).click();
 
 		// Filling Form

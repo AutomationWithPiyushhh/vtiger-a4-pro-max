@@ -10,6 +10,8 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
+//	driver.findElement(By.name("user_name");)
+	
 	@FindBy(name = "user_name")
 	private WebElement username;
 

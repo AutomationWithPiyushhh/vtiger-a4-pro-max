@@ -1,45 +1,51 @@
 package object_repository;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
+	
+//	initialize
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-
-	@FindBy(name = "user_name")
-	private WebElement username;
-
-	@FindBy(name = "user_password")
-	private WebElement password;
-
-	@FindBy(id = "submitButton")
-	private WebElement loginBtn;
 	
+	@FindBy(linkText = "Organizations")
+	private WebElement orgLink;
+	
+	@FindBy(id = "")
+	private WebElement element2;
+	
+	@FindBy(id = "")
+	private WebElement element3;
+	
+	@FindBy(id = "")
+	private WebElement element4;
+	
+	@FindBy(id = "")
+	private WebElement element5;
+	
+	@FindBy(id = "")
+	private WebElement element6;
 
-	public WebElement getUsername() {
-		return username;
+	public WebElement getOrgLink() {
+		return orgLink;
 	}
-
-	public WebElement getPassword() {
-		return password;
+	public WebElement getElement2() {
+		return element2;
 	}
-	
-	public WebElement getLoginBtn() {
-		return loginBtn;
+	public WebElement getElement3() {
+		return element3;
 	}
-	
-//	login method => business utility
-	public void login(String un, String pwd) {
-		username.sendKeys(un);
-		password.sendKeys(pwd);
-		loginBtn.click();
+	public WebElement getElement4() {
+		return element4;
 	}
-	
-	
-
+	public WebElement getElement5() {
+		return element5;
+	}
+	public WebElement getElement6() {
+		return element6;
+	}
 }
